@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABL Construction | Building Excellence</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-color: #1a3a6c;
+            --secondary-color: #e6a23c;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --gray-color: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+        
+        .section-title.center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* About Section */
+        .about-img {
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Our Footprints */
+        .map-container {
+            height: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+        
+        /* Clients Carousel */
+        .clients-carousel {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+        }
+        
+        .client-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+        
+        .client-logo img {
+            max-height: 100%;
+            max-width: 100%;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .client-logo img:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+        
+        /* Strength Section */
+        .strength-card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+        
+        .strength-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .equipment-img {
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        /* Projects Section */
+        .project-category {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        .portfolio-item {
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .portfolio-img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        /* Tables */
+        .data-table {
+            width: 100%;
+            margin-bottom: 30px;
+            border-collapse: collapse;
+        }
+        
+        .data-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        .data-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .data-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .data-table tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.2rem rgba(230, 162, 60, 0.25);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 30px;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0d2a5c;
+            border-color: #0d2a5c;
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #d9922b;
+            border-color: #d9922b;
+            color: white;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: white;
+        }
+        
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 60px 0;
+            }
+            
+            .data-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .map-container {
+                height: 350px;
+            }
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary-color) !important;
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+            color: var(--secondary-color) !important;
+        }
+        
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-hard-hat me-2"></i>ABL Infra
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#footprints">Footprints</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#strength">Our Strength</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Scroll to top button -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content animate-on-scroll">
+                <h1 class="hero-title animate__animated animate__fadeInDown">Building Excellence Since 1995</h1>
+                <p class="lead mb-4 animate__animated animate__fadeInUp animate__delay-1s">
+                    ABL Construction is a leading infrastructure development company with over 25 years of experience in delivering high-quality projects across various sectors.
+                </p>
+                <a href="#about" class="btn btn-secondary btn-lg animate__animated animate__fadeInUp animate__delay-2s">Explore Our Work <i class="fas fa-arrow-down ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About ABL Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">About ABL</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="animate-on-scroll">
+                        <h3 class="mb-3">Our Founding Vision</h3>
+                        <p class="mb-3">
+                            Founded in 1995 by Mr. Rajesh Kumar, ABL Construction began as a small civil works contractor with a vision to build infrastructure that transforms communities.
+                        </p>
+                        <p class="mb-3">
+                            With a strong foundation in ethical business practices and engineering excellence, we have grown into a multi-disciplinary construction company executing projects across India.
+                        </p>
+                        <p>
+                            Today, we employ over 500 professionals and skilled workers, operating with state-of-the-art equipment and technology to deliver projects on time and within budget.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Founder of ABL Construction" class="img-fluid about-img">
+                        <div class="mt-3 text-center">
+                            <h5>Mr. Rajesh Kumar</h5>
+                            <p class="text-muted">Founder & Managing Director</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ABL Today -->
+            <div class="row mt-5 pt-5 align-items-center">
+                <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                    <div class="animate-on-scroll">
+                        <h3 class="mb-3">ABL Today</h3>
+                        <p class="mb-3">
+                            Today, ABL Construction has diversified into various sectors including infrastructure, specialized works, and building structures, with an annual turnover exceeding ₹500 crores.
+                        </p>
+                        <p>
+                            We pride ourselves on our commitment to quality, safety, and sustainability in all our projects, from small-scale residential buildings to large infrastructure developments.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="ABL Construction Today" class="img-fluid about-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Footprints Section -->
+    <section id="footprints" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title center animate-on-scroll">Our Footprints</h2>
+            <p class="text-center mb-5 animate-on-scroll">We have successfully completed projects across multiple states in India</p>
+            
+            <div class="map-container animate-on-scroll">
+                <div id="map"></div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-3 col-6">
+                    <div class="text-center p-3 animate-on-scroll">
+                        <h3 class="text-primary">25+</h3>
+                        <p>States</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="text-center p-3 animate-on-scroll">
+                        <h3 class="text-primary">150+</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="text-center p-3 animate-on-scroll">
+                        <h3 class="text-primary">500+</h3>
+                        <p>Professionals</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="text-center p-3 animate-on-scroll">
+                        <h3 class="text-primary">25</h3>
+                        <p>Years of Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Clients Section -->
+    <section class="clients-carousel">
+        <div class="container">
+            <h2 class="section-title center animate-on-scroll">Our Esteemed Clients</h2>
+            <p class="text-center mb-5 animate-on-scroll">We are proud to have worked with leading organizations across sectors</p>
+            
+            <div class="animate-on-scroll">
+                <div class="owl-carousel owl-theme" id="clientsCarousel">
+                    <!-- Client logos will be added via JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Strength Section -->
+    <section id="strength" class="section-padding">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Our Strength</h2>
+            
+            <!-- Core Team -->
+            <div class="mb-5 animate-on-scroll">
+                <h3 class="mb-4">Core Team</h3>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Members</th>
+                                <th>Key Competence</th>
+                                <th>On-field Experience</th>
+                                <th>In ABL Since</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mr. Rajesh Kumar</td>
+                                <td>Strategic Planning & Business Development</td>
+                                <td>30 years</td>
+                                <td>1995</td>
+                            </tr>
+                            <tr>
+                                <td>Mr. Anil Sharma</td>
+                                <td>Project Management & Operations</td>
+                                <td>25 years</td>
+                                <td>2000</td>
+                            </tr>
+                            <tr>
+                                <td>Ms. Priya Singh</td>
+                                <td>Finance & Administration</td>
+                                <td>20 years</td>
+                                <td>2005</td>
+                            </tr>
+                            <tr>
+                                <td>Mr. Vikram Patel</td>
+                                <td>Engineering & Quality Control</td>
+                                <td>22 years</td>
+                                <td>2003</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Leadership Profile -->
+            <div class="row mb-5">
+                <div class="col-lg-6 animate-on-scroll">
+                    <h3 class="mb-4">Leadership Profile</h3>
+                    <div class="card strength-card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6 text-center p-3">
+                                    <h2 class="text-primary">500+</h2>
+                                    <p>Total Strength</p>
+                                </div>
+                                <div class="col-6 text-center p-3">
+                                    <h2 class="text-primary">15+</h2>
+                                    <p>Avg. Experience of Staff (Years)</p>
+                                </div>
+                            </div>
+                            <p class="mt-3">Our leadership team brings together diverse expertise with a shared commitment to excellence, innovation, and sustainable growth.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 animate-on-scroll">
+                    <h3 class="mb-4">Our Experience</h3>
+                    <div class="card strength-card">
+                        <div class="card-body">
+                            <p>With over 25 years in the construction industry, ABL has successfully executed a wide range of projects from complex infrastructure to specialized industrial facilities.</p>
+                            <ul class="mt-3">
+                                <li>₹5000+ Crores total project value executed</li>
+                                <li>150+ projects successfully delivered</li>
+                                <li>ISO 9001:2015 Certified for Quality Management</li>
+                                <li>ISO 45001:2018 Certified for Safety Management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Form Work & Quality Testing -->
+            <div class="row mb-5">
+                <div class="col-lg-6 animate-on-scroll">
+                    <h3 class="mb-4">Form Work</h3>
+                    <div class="card strength-card">
+                        <div class="card-body">
+                            <p>We employ advanced formwork systems including aluminum formwork, MIVAN technology, and traditional timber formwork based on project requirements. Our expertise ensures precise concrete structures with excellent finish quality.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 animate-on-scroll">
+                    <h3 class="mb-4">Quality Testing Labs</h3>
+                    <div class="card strength-card">
+                        <div class="card-body">
+                            <p>Our in-house NABL accredited laboratories ensure all materials and construction processes meet stringent quality standards. We conduct comprehensive tests for concrete, soil, steel, and other construction materials.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ABL Owned Specialised Equipments -->
+            <div class="mb-5 animate-on-scroll">
+                <h3 class="mb-4">ABL Owned Specialised Equipments</h3>
+                <div class="row">
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="card strength-card h-100">
+                            <img src="https://images.unsplash.com/photo-1576675466969-38eeae4b41f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top equipment-img" alt="Crane">
+                            <div class="card-body">
+                                <h5 class="card-title">Tower Cranes</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="card strength-card h-100">
+                            <img src="https://images.unsplash.com/photo-1574005280904-0fae2d4bb5c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top equipment-img" alt="Concrete Pump">
+                            <div class="card-body">
+                                <h5 class="card-title">Concrete Pumps</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="card strength-card h-100">
+                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top equipment-img" alt="Excavator">
+                            <div class="card-body">
+                                <h5 class="card-title">Hydraulic Excavators</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="card strength-card h-100">
+                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top equipment-img" alt="Pile Boring Machine">
+                            <div class="card-body">
+                                <h5 class="card-title">Pile Boring Machines</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ABL Owned Plants and Machinery -->
+            <div class="animate-on-scroll">
+                <h3 class="mb-4">ABL Owned Plants and Machinery</h3>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Plant / Machinery</th>
+                                <th>Particulars</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Concrete Batching Plant</td>
+                                <td>60 cum/hr capacity</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>Stone Crusher Plant</td>
+                                <td>200 TPH capacity</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Hot Mix Plant</td>
+                                <td>120 TPH capacity</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Wet Mix Plant</td>
+                                <td>200 TPH capacity</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Soil Stabilizer</td>
+                                <td>500 TPH capacity</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Projects Section -->
+    <section id="projects" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Our Projects</h2>
+            <p class="mb-5 animate-on-scroll">We have expertise across multiple sectors of construction and infrastructure development</p>
+            
+            <!-- Major Sectors -->
+            <div class="row mb-5">
+                <div class="col-lg-4 mb-4 animate-on-scroll">
+                    <div class="project-category">
+                        <h4>INFRASTRUCTURE</h4>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-road me-2 text-secondary"></i> Roads</li>
+                            <li><i class="fas fa-train me-2 text-secondary"></i> Railways</li>
+                            <li><i class="fas fa-bridge me-2 text-secondary"></i> Bridges</li>
+                            <li><i class="fas fa-dam me-2 text-secondary"></i> Dams & Canals</li>
+                            <li><i class="fas fa-plane-departure me-2 text-secondary"></i> Airports</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4 animate-on-scroll">
+                    <div class="project-category">
+                        <h4>SPECIALISED WORKS</h4>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-bolt me-2 text-secondary"></i> Power Plants</li>
+                            <li><i class="fas fa-ship me-2 text-secondary"></i> Port Building</li>
+                            <li><i class="fas fa-layer-group me-2 text-secondary"></i> Pile Foundations</li>
+                            <li><i class="fas fa-industry me-2 text-secondary"></i> Industrial Structures</li>
+                            <li><i class="fas fa-oil-can me-2 text-secondary"></i> Oil & Gas Facilities</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4 animate-on-scroll">
+                    <div class="project-category">
+                        <h4>BUILDING STRUCTURES</h4>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-industry me-2 text-secondary"></i> Industrial</li>
+                            <li><i class="fas fa-building me-2 text-secondary"></i> Commercial</li>
+                            <li><i class="fas fa-home me-2 text-secondary"></i> Residential</li>
+                            <li><i class="fas fa-landmark me-2 text-secondary"></i> Institutional</li>
+                            <li><i class="fas fa-hotel me-2 text-secondary"></i> Hospitality</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Current Projects -->
+            <div class="mb-5 animate-on-scroll">
+                <h3 class="mb-4">Current Projects</h3>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Client</th>
+                                <th>Location</th>
+                                <th>Total Value (₹ Crores)</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>National Highways Authority</td>
+                                <td>Mumbai-Pune Expressway</td>
+                                <td>350</td>
+                                <td><span class="badge bg-warning">In Progress</span></td>
+                            </tr>
+                            <tr>
+                                <td>Delhi Metro Rail Corporation</td>
+                                <td>Delhi Metro Phase IV</td>
+                                <td>280</td>
+                                <td><span class="badge bg-warning">In Progress</span></td>
+                            </tr>
+                            <tr>
+                                <td>State Power Corporation</td>
+                                <td>Thermal Power Plant, Gujarat</td>
+                                <td>420</td>
+                                <td><span class="badge bg-warning">In Progress</span></td>
+                            </tr>
+                            <tr>
+                                <td>Private Developer</td>
+                                <td>Commercial Complex, Bangalore</td>
+                                <td>150</td>
+                                <td><span class="badge bg-warning">In Progress</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Key Projects (Past 10 Years) -->
+            <div class="mb-5 animate-on-scroll">
+                <h3 class="mb-4">Key Projects (Past 10 Years)</h3>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Client</th>
+                                <th>Location</th>
+                                <th>Completion Year</th>
+                                <th>Duration (Months)</th>
+                                <th>Value (₹ Crores)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Airport Authority of India</td>
+                                <td>International Airport Terminal</td>
+                                <td>2022</td>
+                                <td>36</td>
+                                <td>520</td>
+                            </tr>
+                            <tr>
+                                <td>State Bridge Corporation</td>
+                                <td>River Bridge Construction</td>
+                                <td>2021</td>
+                                <td>28</td>
+                                <td>320</td>
+                            </tr>
+                            <tr>
+                                <td>National Thermal Power Corp</td>
+                                <td>Power Plant Expansion</td>
+                                <td>2020</td>
+                                <td>32</td>
+                                <td>480</td>
+                            </tr>
+                            <tr>
+                                <td>Private Infrastructure Co.</td>
+                                <td>Industrial Park Development</td>
+                                <td>2019</td>
+                                <td>24</td>
+                                <td>250</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Portfolio with Images -->
+            <div class="animate-on-scroll">
+                <h3 class="mb-4">Portfolio</h3>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="portfolio-item">
+                            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="portfolio-img" alt="Highway Project">
+                            <div class="p-4">
+                                <h5>Mumbai-Pune Expressway</h5>
+                                <p class="text-muted">Mumbai, Maharashtra</p>
+                                <p><strong>Value:</strong> ₹350 Crores</p>
+                                <p>Six-lane expressway with 3 major bridges and 2 tunnels. Completed 6 months ahead of schedule.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="portfolio-item">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="portfolio-img" alt="Residential Complex">
+                            <div class="p-4">
+                                <h5>Skyline Towers</h5>
+                                <p class="text-muted">Bangalore, Karnataka</p>
+                                <p><strong>Value:</strong> ₹220 Crores</p>
+                                <p>High-rise residential complex with 3 towers, clubhouse, and landscaped gardens.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="portfolio-item">
+                            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="portfolio-img" alt="Industrial Plant">
+                            <div class="p-4">
+                                <h5>Thermal Power Plant</h5>
+                                <p class="text-muted">Gujarat</p>
+                                <p><strong>Value:</strong> ₹420 Crores</p>
+                                <p>660 MW thermal power plant including civil works, structural steel, and auxiliary buildings.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <h2 class="section-title center animate-on-scroll">Contact Us</h2>
+            <p class="text-center mb-5 animate-on-scroll">Get in touch with us for your construction needs</p>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="contact-form animate-on-scroll">
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Full Name *</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="company" class="form-label">Company</label>
+                                    <input type="text" class="form-control" id="company">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Phone Number *</label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject *</label>
+                                <input type="text" class="form-control" id="subject" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message *</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="newsletter">
+                                <label class="form-check-label" for="newsletter">Subscribe to our newsletter for updates</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                    
+                    <div class="row mt-5">
+                        <div class="col-md-4 text-center mb-4 animate-on-scroll">
+                            <div class="p-3">
+                                <i class="fas fa-map-marker-alt fa-2x text-primary mb-3"></i>
+                                <h5>Head Office</h5>
+                                <p>123 Construction Plaza,<br>Mumbai, Maharashtra 400001</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center mb-4 animate-on-scroll">
+                            <div class="p-3">
+                                <i class="fas fa-phone fa-2x text-primary mb-3"></i>
+                                <h5>Phone</h5>
+                                <p>+91 22 1234 5678<br>+91 22 8765 4321</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center mb-4 animate-on-scroll">
+                            <div class="p-3">
+                                <i class="fas fa-envelope fa-2x text-primary mb-3"></i>
+                                <h5>Email</h5>
+                                <p>info@ablconstruction.com<br>projects@ablconstruction.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="mb-4">ABL Construction</h3>
+                    <p>Building India's infrastructure with excellence, quality, and commitment since 1995.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home">Home</a></li>
+                        <li class="mb-2"><a href="#about">About Us</a></li>
+                        <li class="mb-2"><a href="#strength">Our Strength</a></li>
+                        <li class="mb-2"><a href="#projects">Projects</a></li>
+                        <li class="mb-2"><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-4">Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Infrastructure Development</li>
+                        <li class="mb-2">Building Construction</li>
+                        <li class="mb-2">Specialized Works</li>
+                        <li class="mb-2">Project Management</li>
+                        <li class="mb-2">Consultancy</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5 class="mb-4">Certifications</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">ISO 9001:2015 Certified</li>
+                        <li class="mb-2">ISO 45001:2018 Certified</li>
+                        <li class="mb-2">NABL Accredited Labs</li>
+                        <li class="mb-2">Class A Contractor License</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2023 ABL Construction. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>Designed for construction professionals</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Leaflet JS for Maps -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <!-- jQuery (for Owl Carousel) -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
+    <script>
+        // Initialize map
+        function initMap() {
+            const map = L.map('map').setView([20.5937, 78.9629], 5);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Add markers for dummy locations (these can be changed as per client needs)
+            const locations = [
+                { name: "Mumbai Office", coords: [19.0760, 72.8777] },
+                { name: "Delhi Project", coords: [28.7041, 77.1025] },
+                { name: "Bangalore Project", coords: [12.9716, 77.5946] },
+                { name: "Chennai Project", coords: [13.0827, 80.2707] },
+                { name: "Kolkata Project", coords: [22.5726, 88.3639] },
+                { name: "Hyderabad Project", coords: [17.3850, 78.4867] },
+                { name: "Ahmedabad Project", coords: [23.0225, 72.5714] },
+                { name: "Pune Project", coords: [18.5204, 73.8567] }
+            ];
+            
+            locations.forEach(loc => {
+                L.marker(loc.coords).addTo(map)
+                    .bindPopup(`<b>${loc.name}</b><br>ABL Construction Project Site`);
+            });
+        }
+        
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize map
+            initMap();
+            
+            // Initialize Owl Carousel for clients
+            $('#clientsCarousel').owlCarousel({
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                autoplayHoverPause: true,
+                margin: 30,
+                responsive: {
+                    0: { items: 2 },
+                    576: { items: 3 },
+                    768: { items: 4 },
+                    992: { items: 5 },
+                    1200: { items: 6 }
+                }
+            });
+            
+            // Add client logos dynamically
+            const clientLogos = [
+                'Company A', 'Company B', 'Company C', 'Company D', 
+                'Company E', 'Company F', 'Company G', 'Company H',
+                'Company I', 'Company J', 'Company K', 'Company L',
+                'Company M', 'Company N', 'Company O', 'Company P'
+            ];
+            
+            const carousel = $('#clientsCarousel');
+            clientLogos.forEach(company => {
+                carousel.trigger('add.owl.carousel', [
+                    `<div class="client-logo">
+                        <div style="width: 150px; height: 80px; background: #ddd; display: flex; align-items: center; justify-content: center; border-radius: 5px;">
+                            <span style="color: #666; font-weight: bold;">${company}</span>
+                        </div>
+                    </div>`
+                ]);
+            });
+            carousel.trigger('refresh.owl.carousel');
+            
+            // Animate on scroll functionality
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            function checkScroll() {
+                animateElements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.classList.add('visible');
+                    }
+                });
+                
+                // Scroll to top button visibility
+                const scrollTopBtn = document.querySelector('.scroll-top');
+                if (window.scrollY > 300) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            }
+            
+            window.addEventListener('scroll', checkScroll);
+            window.addEventListener('load', checkScroll);
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active nav link
+                        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    }
+                });
+            });
+            
+            // Scroll to top button functionality
+            document.querySelector('.scroll-top').addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Form submission
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+            
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.style.padding = '10px 0';
+                    navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+                } else {
+                    navbar.style.padding = '15px 0';
+                    navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
